@@ -1,23 +1,9 @@
-//Import Data
-import ProductData from './js/ProductData.mjs';
-import ProductListing from './js/ProductList.mjs';
+// importing the product data from the ProductData.mjs
+import ProductData from "./ProductData.mjs"
+import ProductListing from "./ProductList.mjs";
 
-//Initialize ProductData
-const productData = new ProductData();
+const dataSource = new ProductData("tents");
+const listElement = document.querySelector(".product-list");
+const productListing = new ProductListing("tents", dataSource, listElement);
 
-//Load the Product Data
-async function loadProducts() {
-   const products = await productData.loadData();
-   console.log(products);
-}
-
-// Get the HTML element where the products will be listed (e.g., a div with id="product-list")
-const listElement = document.getElementById('product-list');
-
-// Create an instance of ProductListing for the "tents" category
-const tentsListing = new ProductListing('tents', productData, listElement);
-
-// Call the init method to load and render products
-tentsListing.init();
-
-loadProducts();
+productListing.init();
