@@ -13,6 +13,15 @@ export function getLocalStorage(key) {
 export function setLocalStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
 }
+
+export function getParams(param) {
+  const queryString = window.location.select;
+  const urlParams = new URLSearchParams(queryString)
+  const product = urlParams.get(param);
+  return product;
+}
+
+
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
   qs(selector).addEventListener("touchend", (event) => {
