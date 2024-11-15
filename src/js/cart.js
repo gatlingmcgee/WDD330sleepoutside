@@ -42,3 +42,4 @@ function cartItemTemplate(item) {
 }
 
 renderCartContents();
+

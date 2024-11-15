@@ -14,6 +14,14 @@ export function setLocalStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
 }
 
+// helper to get parameter strings
+export function getParam(param) {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const product = urlParams.get(param);
+  return product;
+}
+
 // function to take a list of objects and a template and insert the objects as HTML into the DOM
 
 export function renderListWithTemplate(
@@ -39,4 +47,3 @@ export function setClick(selector, callback) {
   });
   qs(selector).addEventListener("click", callback);
 }
-
