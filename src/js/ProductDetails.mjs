@@ -24,6 +24,7 @@ export default class ProductDetails {
     this.product = {};
     this.dataSource = dataSource;
   }
+
   async init() {
     // use our datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
     this.product = await this.dataSource.findProductById(this.productId);
@@ -35,9 +36,11 @@ export default class ProductDetails {
       .getElementById("addToCart")
       .addEventListener("click", this.addToCart.bind(this));
   }
+
   addToCart() {
     setLocalStorage("so-cart", this.product);
   }
+  
   renderProductDetails(selector) {
     const element = document.querySelector(selector);
     element.insertAdjacentHTML(
