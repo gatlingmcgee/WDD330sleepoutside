@@ -3,7 +3,10 @@ import { getLocalStorage } from "./utils.mjs";
 /*
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+
+  //change cartitems into an array, because before, it was a single object
+  const updatedCartItems = [cartItems];
+  const htmlItems = updatedCartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
 }
   */
