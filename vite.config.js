@@ -35,8 +35,7 @@ export default defineConfig({
         main: resolve(__dirname, "src/index.html"),
         cart: resolve(__dirname, "src/cart/index.html"),
         product: resolve(__dirname, "src/product_pages/index.html"),
-      },
-      external: ['main.js']
+      }
     }
   }
 });
