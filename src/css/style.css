@@ -202,6 +202,25 @@ button {
   grid-column: 3;
 }
 
+/* discount CSS */
+.discount-percentage {
+  font-size: 1.1em;
+  color: red; 
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.discounted-price {
+  font-weight: bold;
+  color: green;
+}
+
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
