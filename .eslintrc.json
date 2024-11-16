@@ -11,8 +11,6 @@
     "sourceType": "module"
   },
   "rules": {
-    //Use this to fix "parse: unexpected token" error when running lint
-    "import/namespace": "off",
     "no-unused-vars": [
       1,
       {
