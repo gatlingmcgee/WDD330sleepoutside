@@ -9,7 +9,15 @@ function productCardTemplate(product) {
   />
   <h3 class="card__brand">${product.Brand.Name}</h3>
   <h2 class="card__name">${product.Name}</h2>
-  <p class="product-card__price">$${product.FinalPrice}</p></a>
+  <p class="product-card__price">${product.FinalPrice}</p>
+  ${
+    product.FinalPrice < product.SuggestedRetailPrice
+      ? `<p class="discount">${Math.round(
+          ((product.SuggestedRetailPrice - product.FinalPrice) / product.SuggestedRetailPrice) * 100
+        )}% OFF</p>`
+      : ""
+  }
+  </a>
 </li>`;
 }
 
