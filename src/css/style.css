@@ -94,6 +94,26 @@ button {
 .divider {
   border-bottom: 2px solid var(--primary-color);
 }
+
+/* adjusting style for the remove item button: sean 11/16 */
+.cart-card__remove {
+ color: white;
+ background-color: red;
+ padding: 0.25em 0.75em;
+ border-radius: 6px;
+ cursor: pointer;
+ text-align: center;
+ font-size: 1rem;
+}
+
+.cart-card__remove:hover {
+  background-color: darkred;
+}
+
+.cart-card__remove:active {
+  background-color: darkred;
+}
+
 /* End utility classes */
 
 /* Cart icon styles */
