@@ -37,7 +37,8 @@ function cartItemTemplate(item) {
   <p class="cart-card__quantity">qty: 1</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
 </li>`;
-
+  const price = `$${item.FinalPrice}`;
+  document.getElementById("cart-card__price").innerHTML = price;
   return newItem;
 }
 
