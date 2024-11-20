@@ -10,20 +10,19 @@
 
 
 
-// src/js/product-listing.js
 import ProductData from "./ProductData.mjs";
-import ProductListing from "./ProductList.mjs";
+import ProductList from "./ProductList.mjs";
+//import { loadHeaderFooter, getParam } from "./utils.mjs";
+import { getParam } from "./utils.mjs";
 
-// Extract the category from the URL query parameters
-const urlParams = new URLSearchParams(window.location.search);
-const category = urlParams.get("category") || "tents";  // Default to "tents" if no category is provided
+//loadHeaderFooter();
 
-// Create the data source for the selected category
-const dataSource = new ProductData(category);
-
-// Get the product-list container
+const category = getParam("category");
+// first create an instance of our ProductData class.
+const dataSource = new ProductData();
+// then get the element we want the product list to render in
 const listElement = document.querySelector(".product-list");
-
-// Instantiate and initialize the product listing for the selected category
-const productListing = new ProductListing(category, dataSource, listElement);
-productListing.init();
+// then create an instance of our ProductList class and send it the correct information.
+const myList = new ProductList(category, dataSource, listElement);
+// finally call the init method to show our products
+myList.init();
