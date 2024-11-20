@@ -240,3 +240,15 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+  /* test */
+.category {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.category a {
+  height: auto;
+  width: 40%;
+  margin: 0 auto;
+}
