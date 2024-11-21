@@ -1,4 +1,4 @@
-import { renderListWithTemplate } from "./utils.mjs";
+import { getLocalStorage } from "./utils.mjs";
 
 function ShoppingCartTemplate(product) {
   return `<li class="product-card">
@@ -6,6 +6,7 @@ function ShoppingCartTemplate(product) {
   <img
     src="${product.Image}"
     alt="Image of ${product.Name}"
+    loading = "lazy"
   />
   <h3 class="card__brand">${product.Brand.Name}</h3>
   <h2 class="card__name">${product.Name}</h2>
@@ -15,19 +16,15 @@ function ShoppingCartTemplate(product) {
 </li>`;
 }
 
+
 export default class ShoppingCart {
-  constructor(category, dataSource, listElement) {
-
-    this.category = category;
-    this.dataSource = dataSource;
-    this.listElement = listElement;
+  constructor(key, parentSelector) {
+    this.key = key;
+    this.parentSelector = parentSelector;
   }
-  filterProducts(list, productIds) {
-    return list.filter(product => productIds.includes(product.Id));
-
-  }
-  renderList(list) {
-    renderListWithTemplate(ShoppingCartTemplate, this.listElement, list);
-
+  renderCartContents() {
+    const cartItems = getLocalStorage(this.key);
+    const htmlItems = cartItems.map((item) => ShoppingCartTemplate(item));
+    document.querySelector(this.parentSelector).innerHTML = htmlItems.join("");
   }
 }

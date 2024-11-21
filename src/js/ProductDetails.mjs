@@ -7,6 +7,7 @@ function productDetailsTemplate(product) {
       class="divider"
       src="${product.Images.PrimaryLarge}"
       alt="${product.NameWithoutBrand}"
+      loading = "lazy"
     />
     <p class="product-card__price">$${product.FinalPrice}</p>
     <p class="product__color">${product.Colors[0].ColorName}</p>
