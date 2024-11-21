@@ -28,7 +28,7 @@ function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
-      src="${item.Image}"
+      src="${item.Images.PrimaryMedium}"
       alt="${item.Name}"
     />
   </a>
@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //Independant task, Remove from cart feature: added the remove item from cart function: sean 11/16
   function removeItemFromCart(productId) {
+  const emptyCartMessage = document.getElementById("emptyCartMessage");
   // Get the current cart from localStorage
   let cart = getLocalStorage("so-cart");
   // If cart is a single object, convert it to an array
@@ -94,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setLocalStorage("so-cart", updatedCart);
   // Re-render the cart
   renderCartContents();
+  emptyCartMessage.style.display = "block";
 }
 
 loadHeaderFooter();
