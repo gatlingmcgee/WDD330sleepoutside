@@ -34,11 +34,12 @@ export default class ProductListing {
     const list = await this.dataSource.getData(this.category);
     // render the list
     this.renderList(list);
+    document.querySelector(".title").innerHTML = `: ${this.category}`;
   }
   // render after doing the first stretch
   renderList(list) {
     renderListWithTemplate(productCardTemplate, this.listElement, list);
-
+  
   }
 
   // render before doing the stretch
