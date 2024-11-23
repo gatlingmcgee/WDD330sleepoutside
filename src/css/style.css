@@ -212,9 +212,14 @@ button {
   grid-column: 2;
 }
 
+.cart-card__quantity input {
+  border: 1px  solid rgba(0, 0, 0, 0.3);
+  width: 60px;
+  font-size: 15px;
+}
+
 .cart-card__quantity {
-  grid-row: 1;
-  grid-column: 3;
+  text-align: center;
 }
 
 .cart-card__price {
