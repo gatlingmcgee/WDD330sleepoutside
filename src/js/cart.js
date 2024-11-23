@@ -116,6 +116,7 @@ function updateItemQuantity(productId, newQuantity) {
   }
 
   const itemIndex = cart.findIndex(item => item.Id === productId);
+  
   if (itemIndex !== -1) {
     cart[itemIndex].quantity = newQuantity;
     setLocalStorage("so-cart", cart);
