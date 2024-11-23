@@ -1,7 +1,7 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
-  const cartItems = getLocalStorage("so-cart");
+  const cartItems = getLocalStorage("so-cart") || [];
 
   //change cartitems into an arry, because before, it was a single object
   //const updatedCartItems = Array.isArray(JSON.parse(cartItems)) ? JSON.parse(cartItems) : [];
@@ -45,8 +45,7 @@ function cartItemTemplate(item) {
     <h2 class="card__name">${item.Name}</h2>
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
-  <input type="number" min="1" value=${item.quantity}" class="quantity-input" data-id="${item.Id}" />
+  <p>Quantity: <input type="number" min="1" value="${item.quantity}" class="quantity-input" data-id="${item.Id}" /></p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
   <span class="cart-card__remove" data-id="${item.Id}">X</span>
 </li>`;
@@ -105,10 +104,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //Independant task, add cart quantity feature: added the update item quantity function: sean 11/23
 function updateItemQuantity(productId, newQuantity) {
+  
+  if (newQuantity < 1 || isNaN(newQuantity)) return;
+  
   let cart = getLocalStorage("so-cart");
   if (!Array.isArray(cart)) {
     cart = [cart]
   }
+
   const updatedCart = cart.map(item => {
     if (item.Id === productId) {
       item.quantity = newQuantity;
