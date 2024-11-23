@@ -21,6 +21,16 @@ function renderCartContents() {
       removeItemFromCart(productId);
     });
   });
+
+  //event listener for quantity change: sean 11/23
+  const quantityInputs = document.querySelectorAll(".quantity-input");
+  quantityInputs.forEach(input => {
+    input.addEventListener("change", (event) => {
+      const productId = event.target.getAttribute("data-id");
+      const newQuantity = parseInt(event.target.value);
+      updateItemQuantity(productId, newQuantity);
+    });
+  });
 }
 
 function cartItemTemplate(item) {
@@ -36,6 +46,7 @@ function cartItemTemplate(item) {
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">qty: 1</p>
+  <input type="number" min="1" value=${item.quantity}" class="quantity-input" data-id="${item.Id}" />
   <p class="cart-card__price">$${item.FinalPrice}</p>
   <span class="cart-card__remove" data-id="${item.Id}">X</span>
 </li>`;
@@ -45,8 +56,19 @@ function cartItemTemplate(item) {
   return newItem;
 }
 
-// Independant task, Empty Card Error: cart.html: added an eventlistener to check if cart is empty to relay empty cart message Sean 11/16
+// Independant task, Empty Cart Error: cart.html: added an eventlistener to check if cart is empty to relay empty cart message Sean 11/16
 document.addEventListener("DOMContentLoaded", () => {
+
+  const cart = getLocalStorage("so-cart") || [];
+  const emptyCartMessage = document.getElementById("emptyCartMessage");
+
+  if (cart.length === 0) {
+    emptyCartMessage.style.display = "block";
+   } else {
+    renderCartContents();
+   }
+
+  /*
   // Fetch cart data from localStorage
   const cart = JSON.parse(localStorage.getItem("so-cart")) || [];
 
@@ -77,7 +99,26 @@ document.addEventListener("DOMContentLoaded", () => {
       cartItemsElement.appendChild(cartItem);
     });
   }
+    */
 });
+
+
+//Independant task, add cart quantity feature: added the update item quantity function: sean 11/23
+function updateItemQuantity(productId, newQuantity) {
+  let cart = getLocalStorage("so-cart");
+  if (!Array.isArray(cart)) {
+    cart = [cart]
+  }
+  const updatedCart = cart.map(item => {
+    if (item.Id === productId) {
+      item.quantity = newQuantity;
+    }
+    return item;
+  });
+
+  setLocalStorage("so-cart", updatedCart);
+  renderCartContents();
+};
 
   //Independant task, Remove from cart feature: added the remove item from cart function: sean 11/16
   function removeItemFromCart(productId) {
