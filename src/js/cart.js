@@ -13,6 +13,14 @@ function renderCartContents() {
   const htmlItems = updatedCartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
 
+  //event listener for quantity change #1: sean 11/23
+  const quantityInputs = document.querySelectorAll(".quantity-input");
+  quantityInputs.forEach(input => {
+    if (input.value === "" || isNaN(input.value) || parseInt(input.value) < 1) {
+      input.value = 1;
+    }
+  });
+
   const totalPrice = updatedCartItems.reduce((acc, item) => acc + (item.FinalPrice * item.quantity), 0);
   document.querySelector(".cart-total").innerHTML = `Total: $${totalPrice.toFixed(2)}`;
 
@@ -25,12 +33,11 @@ function renderCartContents() {
     });
   });
 
-  //event listener for quantity change: sean 11/23
-  const quantityInputs = document.querySelectorAll(".quantity-input");
+  //event listener for quantity change #2: sean 11/23
   quantityInputs.forEach(input => {
     input.addEventListener("change", (event) => {
       const productId = event.target.getAttribute("data-id");
-      const newQuantity = parseInt(event.target.value);
+       const newQuantity = parseInt(event.target.value);
       updateItemQuantity(productId, newQuantity);
     });
   });
@@ -107,6 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //Independant task, add cart quantity feature: added the update item quantity function: sean 11/23
 function updateItemQuantity(productId, newQuantity) {
+  
   
   if (newQuantity < 1 || isNaN(newQuantity)) return;
   
