@@ -1,9 +1,9 @@
-class Alert {
+class alert {
    constructor(filePath) {
      this.filePath = filePath; // Store the file path
    }
  
-   async loadAlerts(criteria = null) {
+   async loadalerts(criteria = null) {
      try {
        // Fetch the JSON data
        const response = await fetch(this.filePath);
@@ -12,20 +12,20 @@ class Alert {
        const alerts = await response.json();
  
        // Filter alerts if criteria is provided
-       const filteredAlerts = criteria
+       const filteredalerts = criteria
          ? alerts.filter((alert) => alert.message.includes(criteria))
          : alerts;
  
        // Display only the filtered alerts
-       if (filteredAlerts.length > 0) {
-         this.displayAlerts(filteredAlerts);
+       if (filteredalerts.length > 0) {
+         this.displayalerts(filteredalerts);
        }
      } catch (error) {
        console.error("Error loading alerts:", error);
      }
    }
  
-   displayAlerts(alerts) {
+   displayalerts(alerts) {
      // Create a <section class="alert-list">
      const alertSection = document.createElement("section");
      alertSection.classList.add("alert-list");
@@ -55,4 +55,4 @@ class Alert {
    }
  }
  
- export default Alert;
+ export default alert;
