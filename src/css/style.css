@@ -276,3 +276,50 @@ footer {
   width: 40%;
   margin: 0 auto;
 }
+
+/* Newsletter */
+.newsletter-signup {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+}
+ 
+.newsletter-signup h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+ 
+.newsletter-signup p {
+  margin-bottom: 15px;
+}
+ 
+.newsletter-signup input[type="email"] {
+  padding: 10px;
+  width: 80%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+ 
+.newsletter-signup button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+ 
+.newsletter-signup button:hover {
+  background-color: #0056b3;
+}
+ 
+.message {
+  margin-top: 10px;
+  font-size: 14px;
+  color: green;
+}
