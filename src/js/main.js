@@ -2,13 +2,13 @@
 import ProductData from "./ProductData.mjs";
 import ProductListing from "./ProductList.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
-import Alert from '../js/alert.js';
+import Alert from './alert.js';
 
 const dataSource = new ProductData("tents");
 const listElement = document.querySelector(".product-list");
 const productListing = new ProductListing("tents", dataSource, listElement);
 
-const alert = new Alert('../public/json/alert.json');
+const alert = new Alert('/json/alerts.json');
 
 alert.loadAlerts('maintenance');
 loadHeaderFooter();
