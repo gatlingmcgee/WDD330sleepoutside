@@ -38,8 +38,8 @@ export default class ProductListing {
   }
 
   addSortEventListener() {
-    const sortDropdown = document.getElementById('sort');
-    sortDropdown.addEventListener('change', (event) => {
+    const sortDropdown = document.getElementById("sort");
+    sortDropdown.addEventListener("change", (event) => {
       this.sortList(event.target.value);
     });
   }
@@ -48,16 +48,16 @@ export default class ProductListing {
     let sortedList;
 
     switch (criteria) {
-      case 'name-asc':
+      case "name-asc":
         sortedList = this.products.sort((a, b) => a.Name.localeCompare(b.Name));
         break;
-      case 'name-desc':
+      case "name-desc":
         sortedList = this.products.sort((a, b) => b.Name.localeCompare(a.Name));
         break;
-      case 'price-asc':
+      case "price-asc":
         sortedList = this.products.sort((a, b) => a.FinalPrice - b.FinalPrice);
         break;
-      case 'price-desc':
+      case "price-desc":
         sortedList = this.products.sort((a, b) => b.FinalPrice - a.FinalPrice);
         break;
       default:
