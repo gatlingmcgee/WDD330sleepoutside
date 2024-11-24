@@ -8,7 +8,7 @@ const dataSource = new ProductData("tents");
 const listElement = document.querySelector(".product-list");
 const productListing = new ProductListing("tents", dataSource, listElement);
 
-const alert = new Alert('../dist/json/alerts.json');
+const alert = new Alert('../public/json/alert.json');
 
 alert.loadAlerts('maintenance');
 loadHeaderFooter();
