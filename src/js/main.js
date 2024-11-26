@@ -10,13 +10,13 @@ const productListing = new ProductListing("tents", dataSource, listElement);
 
 const alert = new Alert("/json/alerts.json");
 
-document.getElementById('newsletterForm').addEventListener('submit', function(event) {
+document.getElementById("newsletterForm").addEventListener("submit", function(event) {
     event.preventDefault();
-    const email = document.getElementById('email').value;
+    const email = document.getElementById("email").value;
   
-    document.getElementById('message').innerText = `Thank you for subscribing, ${email}!`;
+    document.getElementById("message").innerText = `Thank you for subscribing, ${email}!`;
     
-    document.getElementById('email').value = '';
+    document.getElementById("email").value = "";
  });
  
 alert.loadAlerts("maintenance");
