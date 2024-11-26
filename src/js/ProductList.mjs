@@ -26,11 +26,22 @@ export default class ProductListing {
     this.products = []; // Array to store products
   }
 
+  // async init() {
+  //   const list = await this.dataSource.getData(this.category);
+  //   this.products = list; // Save the products data
+  //   this.renderList(list);
+  //   this.addSortEventListener();
+  // }
+
   async init() {
-    const list = await this.dataSource.getData(this.category);
-    this.products = list; // Save the products data
-    this.renderList(list);
-    this.addSortEventListener();
+    try {
+        const list = await this.dataSource.getData(this.category);
+        this.renderList(list);
+        this.products = list; // Save the products data
+        this.addSortEventListener();
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
   }
 
   renderList(list) {
