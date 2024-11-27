@@ -12,10 +12,10 @@
 
 import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
-//import { loadHeaderFooter, getParam } from "./utils.mjs";
-import { getParam } from "./utils.mjs";
+import { loadHeaderFooter, getParam } from "./utils.mjs";
+//import { getParam } from "./utils.mjs";
 
-//loadHeaderFooter();
+loadHeaderFooter();
 
 const category = getParam("category");
 // first create an instance of our ProductData class.

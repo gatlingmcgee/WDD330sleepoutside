@@ -1,4 +1,4 @@
-import { setLocalStorage } from "./utils.mjs";
+import { setLocalStorage, loadHeaderFooter } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
@@ -27,7 +27,7 @@ export default class ProductDetails {
   }
 
   async init() {
-    // use our datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
+    // use our data source to get the details for the current product. findProductById will return a promise! use await or .then() to process it
     this.product = await this.dataSource.findProductById(this.productId);
     // once we have the product details we can render out the HTML
     this.renderProductDetails("main");
@@ -49,4 +49,10 @@ export default class ProductDetails {
       productDetailsTemplate(this.product)
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+
+loadHeaderFooter();
+>>>>>>> 8bdc6c09a383cdbfe18969344a8cb72517094618
