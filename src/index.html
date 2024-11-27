@@ -5,11 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sleep Outside | Home</title>
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="/js/main.js" type="module"></script>
   </head>
   <body>
     <header class="divider" id="header"></header>
     <main class="divider">
+      <div class="container">
+        <form class="form">
+          <input type="text" class="input" id="myInput" onkeyup="tents()" placeholder="Search Items">
+          <input type="button" class="button" id="searchBtn" value="Search">
+        </form>
+      </div>
+    <div class="results-container">
+        <ul class="results-list" id="list">
+          <li><a href="https://stirring-axolotl-37dacb.netlify.app/product_pages/index.html?product=989CH">North Face: Assault Tent-3-Person, 3 Season</a></li>
+          <li><a href="https://stirring-axolotl-37dacb.netlify.app/product_pages/index.html?product=880RT">Marmont: Ajax Tent-2-Person, 3-Season</a></li>
+          <li><a href="https://stirring-axolotl-37dacb.netlify.app/product_pages/index.html?product=880RR">Marmont: Ajax Tent-3-Person, 3-Season</a></li>
+        </ul>
+    </div>
       <div class="hero">
         <img
           src="/images/banner-sm.jpg"
@@ -39,10 +51,16 @@
       <section class="products">
         <h2>Top Products</h2>
         <ul class="product-list"></ul>
-        
         </ul>
       </section>
     </main>
     <footer id="footer"></footer>
   </body>
+  <script src="./js/main.js" type="module"></script>
+  <script src="./js/ProductData.mjs" type="module"></script>
+  <script>
+    function tents() {
+      searchTents();
+    }
+  </script>
 </html>
