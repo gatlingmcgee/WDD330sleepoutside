@@ -31,11 +31,11 @@ export default class ProductData {
 }
 
 export async function searchTents() {
-  var input, filter, ul, li, i, a, i, txtValue;
+  var input, filter, ul, li, i, a, txtValue;
   input = document.getElementById("myInput")
   filter = input.value.toUpperCase();
   ul = document.getElementById("list");
-  li = ul.getElementsByTagName('li');
+  li = ul.getElementsByTagName("li");
 
   for (i = 0; i < li.length; i++) {
     a = li[i].getElementsByTagName("a")[0];
