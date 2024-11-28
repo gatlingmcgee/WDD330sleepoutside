@@ -4,7 +4,6 @@ import ProductListing from "./ProductList.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
 import { searchTents } from "./ExternalServices.mjs";
 import Alert from "./alert.js";
-import { searchTents } from "./ExternalServices.mjs";
 
 const dataSource = new ExternalServices("tents");
 const listElement = document.querySelector(".product-list");
