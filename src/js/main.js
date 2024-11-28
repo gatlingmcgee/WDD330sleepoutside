@@ -2,7 +2,7 @@
 import ExternalServices from "./ExternalServices.mjs";
 import ProductListing from "./ProductList.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
-import { searchTents } from "./ExternalServices.mjs";
+//import { searchTents } from "./ExternalServices.mjs";
 import Alert from "./alert.js";
 
 const dataSource = new ExternalServices("tents");
@@ -22,5 +22,5 @@ document.getElementById("newsletterForm").addEventListener("submit", function(ev
  
 alert.loadAlerts("maintenance");
 loadHeaderFooter();
-searchTents();
+//searchTents();
 productListing.init();
