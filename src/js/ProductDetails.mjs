@@ -1,3 +1,4 @@
+import { build } from "vite";
 import { setLocalStorage, loadHeaderFooter } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
@@ -49,10 +50,6 @@ export default class ProductDetails {
       productDetailsTemplate(this.product)
     );
   }
-<<<<<<< HEAD
-}
-=======
 }
 
 loadHeaderFooter();
->>>>>>> 8bdc6c09a383cdbfe18969344a8cb72517094618
