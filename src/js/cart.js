@@ -78,38 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
     renderCartContents();
    }
 
-  /*
-  // Fetch cart data from localStorage
-  const cart = JSON.parse(localStorage.getItem("so-cart")) || [];
-
-  // Get the cart items list element
-  const cartItemsElement = document.getElementById("cartItems");
-  const emptyCartMessage = document.getElementById("emptyCartMessage");
-
-  // Check if the cart is empty
-  if (cart.length === 0) {
-    // Show empty cart message
-    emptyCartMessage.style.display = "block";
-  } else {
-    // Render cart items
-    cart.forEach(product => {
-      const cartItem = document.createElement("li");
-      cartItem.classList.add("cart-card", "divider");
-      cartItem.innerHTML = `
-        <a href="product_pages/${product.Id}.html" class="cart-card__image">
-          <img src="${product.Image}" alt="${product.Name}" />
-        </a>
-        <a href="product_pages/${product.Id}.html">
-          <h2 class="card__name">${product.Name}</h2>
-        </a>
-        <p class="cart-card__color">${product.Colors[0]?.ColorName}</p>
-        <p class="cart-card__quantity">qty: 1</p>
-        <p class="cart-card__price">$${product.FinalPrice}</p>
-      `;
-      cartItemsElement.appendChild(cartItem);
-    });
-  }
-    */
 });
 
 

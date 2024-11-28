@@ -27,13 +27,6 @@ export default class ProductListing {
   }
   
 
-  // async init() {
-  //   const list = await this.dataSource.getData(this.category);
-  //   this.products = list; // Save the products data
-  //   this.renderList(list);
-  //   this.addSortEventListener();
-  // }
-
   async init() {
     try {
         const list = await this.dataSource.getData(this.category);
