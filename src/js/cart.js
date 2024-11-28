@@ -5,7 +5,6 @@ function renderCartContents() {
   const cartItems = getLocalStorage("so-cart") || [];
 
   //change cartitems into an arry, because before, it was a single object
-  //const updatedCartItems = Array.isArray(JSON.parse(cartItems)) ? JSON.parse(cartItems) : [];
 
   //Independant task, Remove from cart feature: make sure the cart items are in an array: sean 11/16
   const updatedCartItems = Array.isArray(cartItems) ? cartItems : [cartItems];
@@ -99,18 +98,6 @@ function updateItemQuantity(productId, newQuantity) {
     setLocalStorage("so-cart", cart);
     renderCartContents();
   }
-
-  /*
-  const updatedCart = cart.map(item => {
-    if (item.Id === productId) {
-      item.quantity = newQuantity;
-    }
-    return item;
-  });
-
-  setLocalStorage("so-cart", updatedCart);
-  renderCartContents();
-  */
 };
 
   //Independant task, Remove from cart feature: added the remove item from cart function: sean 11/16
