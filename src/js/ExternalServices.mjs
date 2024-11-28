@@ -25,7 +25,6 @@ export default class ExternalServices {
     const data = await convertToJson(response);
     return data.Result;
   }
-  /*
   async checkout(payload) {
     const options = {
       method: "POST",
@@ -54,7 +53,6 @@ export async function searchTents() {
       li[i].style.display = "none";
     }
   }
-    */
 }
 
 // May not use this:
