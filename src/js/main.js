@@ -1,15 +1,15 @@
-// importing the product data from the ProductData.mjs
-import ProductData from "./ProductData.mjs";
+// importing the product data from the ExternalServices.mjs
+import ExternalServices from "./ExternalServices.mjs";
 import ProductListing from "./ProductList.mjs";
 <<<<<<< HEAD
 import { loadHeaderFooter } from "./utils.mjs";
-import { searchTents } from "./ProductData.mjs";
+import { searchTents } from "./ExternalServices.mjs";
 =======
 import {loadHeaderFooter  } from "./utils.mjs";
 import Alert from "./alert.js";
 >>>>>>> 8bdc6c09a383cdbfe18969344a8cb72517094618
 
-const dataSource = new ProductData("tents");
+const dataSource = new ExternalServices("tents");
 const listElement = document.querySelector(".product-list");
 const productListing = new ProductListing("tents", dataSource, listElement);
 
