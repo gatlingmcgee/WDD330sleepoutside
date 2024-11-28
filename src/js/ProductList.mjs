@@ -1,4 +1,5 @@
 import { getParam, renderListWithTemplate } from "./utils.mjs";
+import { searchTents } from "./ExternalServices.mjs";
 
 function productCardTemplate(product) {
   return `<li class="product-card">
