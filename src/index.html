@@ -55,15 +55,15 @@
     </main>
     <footer id="footer"></footer>
   </body>
-  <script src="/js/main.js" type="module"></script>
-  <script src="./js/ProductData.mjs" type="module"></script>
+  <script src="./js/main.js" type="module"></script>
+  <script src="./js/ExternalServices.mjs" type="module"></script>
   <script>
   function tents() {
   var input, filter, ul, li, i, a, txtValue;
   input = document.getElementById("myInput")
   filter = input.value.toUpperCase();
   ul = document.getElementById("list");
-  li = ul.getElementsByTagName('li');
+  li = ul.getElementsByTagName("li");
 
   for (i = 0; i < li.length; i++) {
     a = li[i].getElementsByTagName("a")[0];
