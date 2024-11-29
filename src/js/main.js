@@ -20,5 +20,4 @@ document.getElementById('newsletterForm').addEventListener('submit', function(ev
  });
  
 alert.loadAlerts("maintenance");
-loadHeaderFooter();
 productListing.init();
