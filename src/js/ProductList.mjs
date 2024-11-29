@@ -79,3 +79,5 @@ export default class ProductListing {
 }
 
 loadHeaderFooter();
+searchTents();
+getParam();
