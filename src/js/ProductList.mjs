@@ -1,5 +1,6 @@
 import { getParam, renderListWithTemplate } from "./utils.mjs";
 import { searchTents } from "./ExternalServices.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
 
 function productCardTemplate(product) {
   return `<li class="product-card">
@@ -76,3 +77,7 @@ export default class ProductListing {
   }
   
 }
+
+loadHeaderFooter();
+searchTents();
+getParam();
