@@ -6,6 +6,7 @@
     <title>Sleep Outside | Home</title>
     <link rel="stylesheet" href="/css/style.css" />
     <script src="/js/main.js" type="module"></script>
+    <script src="./js/ExternalServices.mjs" type="module"></script>
   </head>
   <body>
     <header class="divider" id="header"></header>
@@ -49,9 +50,8 @@
       </section>
       <section class="products">
         <h2>Top Products</h2>
-        <ul class="product-list"></ul>
-        
-        </ul>
+        <input type="text" id="myInput" placeholder="Search for tents..." onkeyup="searchTents()">
+        <ul id="list" class="product-list"></ul>
       </section>
     </main>
     <footer id="footer"></footer>

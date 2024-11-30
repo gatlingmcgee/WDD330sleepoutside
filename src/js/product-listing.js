@@ -1,15 +1,3 @@
-// importing the product data from the ExternalServices.mjs
-//import ExternalServices from "./ExternalServices.mjs"
-//import ProductListing from "./ProductList.mjs";
-
-//const dataSource = new ExternalServices("tents");
-//const listElement = document.querySelector(".product-list");
-//const productListing = new ProductListing("tents", dataSource, listElement);
-
-//productListing.init();
-
-
-
 import ExternalServices from "./ExternalServices.mjs";
 import ProductList from "./ProductList.mjs";
 import { loadHeaderFooter, getParam } from "./utils.mjs";

@@ -5,7 +5,6 @@ function renderCartContents() {
   const cartItems = getLocalStorage("so-cart") || [];
 
   //change cartitems into an arry, because before, it was a single object
-  //const updatedCartItems = Array.isArray(JSON.parse(cartItems)) ? JSON.parse(cartItems) : [];
 
   //Independant task, Remove from cart feature: make sure the cart items are in an array: sean 11/16
   const updatedCartItems = Array.isArray(cartItems) ? cartItems : [cartItems];
@@ -78,38 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
     renderCartContents();
    }
 
-  /*
-  // Fetch cart data from localStorage
-  const cart = JSON.parse(localStorage.getItem("so-cart")) || [];
-
-  // Get the cart items list element
-  const cartItemsElement = document.getElementById("cartItems");
-  const emptyCartMessage = document.getElementById("emptyCartMessage");
-
-  // Check if the cart is empty
-  if (cart.length === 0) {
-    // Show empty cart message
-    emptyCartMessage.style.display = "block";
-  } else {
-    // Render cart items
-    cart.forEach(product => {
-      const cartItem = document.createElement("li");
-      cartItem.classList.add("cart-card", "divider");
-      cartItem.innerHTML = `
-        <a href="product_pages/${product.Id}.html" class="cart-card__image">
-          <img src="${product.Image}" alt="${product.Name}" />
-        </a>
-        <a href="product_pages/${product.Id}.html">
-          <h2 class="card__name">${product.Name}</h2>
-        </a>
-        <p class="cart-card__color">${product.Colors[0]?.ColorName}</p>
-        <p class="cart-card__quantity">qty: 1</p>
-        <p class="cart-card__price">$${product.FinalPrice}</p>
-      `;
-      cartItemsElement.appendChild(cartItem);
-    });
-  }
-    */
 });
 
 
@@ -131,18 +98,6 @@ function updateItemQuantity(productId, newQuantity) {
     setLocalStorage("so-cart", cart);
     renderCartContents();
   }
-
-  /*
-  const updatedCart = cart.map(item => {
-    if (item.Id === productId) {
-      item.quantity = newQuantity;
-    }
-    return item;
-  });
-
-  setLocalStorage("so-cart", updatedCart);
-  renderCartContents();
-  */
 };
 
   //Independant task, Remove from cart feature: added the remove item from cart function: sean 11/16
