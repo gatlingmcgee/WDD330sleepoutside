@@ -323,3 +323,52 @@ footer {
   font-size: 14px;
   color: green;
 }
+
+.cart {
+  position: relative;
+  padding-top: 1em;
+  text-align: center;
+}
+
+.cart svg {
+  width: 25px;
+  position: relative; /* Ensure it can contain the superscript number */
+}
+
+.cart-count {
+  position: absolute;
+  top: -5px; /* Adjust the vertical positioning of the number */
+  right: -5px; /* Adjust the horizontal positioning */
+  background-color: red; /* Red background to make it stand out */
+  color: white; /* White text for readability */
+  font-size: 0.8em; /* Smaller font size */
+  padding: 0.3em 0.5em; /* Padding around the number */
+  border-radius: 50%; /* Make it circular */
+  display: inline-block;
+  text-align: center;
+}
+
+/* Cart Icon Add Animation */
+@keyframes cartAdded {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.cart-icon {
+  transition: transform 0.3s ease;
+}
+
+.cart-icon.animate {
+  animation: cartAdded 0.5s ease-in-out;
+}
+
+
+
+
