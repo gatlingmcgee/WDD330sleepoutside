@@ -1,4 +1,3 @@
-import { build } from "vite";
 import { setLocalStorage, loadHeaderFooter } from "./utils.mjs";
 
 function productDetailsTemplate(product) {

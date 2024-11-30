@@ -1,9 +1,9 @@
 // importing the product data from the ExternalServices.mjs
 import ExternalServices from "./ExternalServices.mjs";
 import ProductListing from "./ProductList.mjs";
-import { loadHeaderFooter } from "./utils.mjs";
-import { searchTents } from "./ExternalServices.mjs";
+import {loadHeaderFooter  } from "./utils.mjs";
 import Alert from "./alert.js";
+import { searchTents } from "./ExternalServices.mjs";
 
 const dataSource = new ExternalServices("tents");
 const listElement = document.querySelector(".product-list");
@@ -27,5 +27,4 @@ document.getElementById("myInput").addEventListener("keyup", function() {
  
 alert.loadAlerts("maintenance");
 loadHeaderFooter();
-searchTents();
 productListing.init();
