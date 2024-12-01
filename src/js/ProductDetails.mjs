@@ -1,4 +1,4 @@
-import { setLocalStorage, loadHeaderFooter } from "./utils.mjs";
+import { setLocalStorage, loadHeaderFooter, alertMessage } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
@@ -34,13 +34,29 @@ export default class ProductDetails {
       .addEventListener("click", this.addToCart.bind(this));
   }
 
+//  addToCart() {
+//    const cartIcon = document.querySelector(".cart-icon");
+//    setLocalStorage("so-cart", this.product);
+//    cartIcon.classList.add("animate");
+//    setTimeout(() => {
+//      cartIcon.classList.remove("animate");
+//    },500);
+
+//    cartContents.push(this.product);
+//    setLocalStorage("so-cart", cartContents);
+//    alertMessage(`${this.product.NameWithoutBrand} added to cart!`);
+//  }
+
   addToCart() {
-    const cartIcon = document.querySelector(".cart-icon");
-    setLocalStorage("so-cart", this.product);
-    cartIcon.classList.add("animate");
-    setTimeout(() => {
-      cartIcon.classList.remove("animate");
-    },500);
+    let cartContents = setLocalStorage("so-cart");
+    //check to see if there was anything there
+    if (!cartContents) {
+      cartContents = [];
+    }
+    // then add the current product to the list
+    cartContents.push(this.product);
+    setLocalStorage("so-cart", cartContents);
+    alertMessage(`${this.product.NameWithoutBrand} added to cart!`);
   }
   
   renderProductDetails(selector) {
