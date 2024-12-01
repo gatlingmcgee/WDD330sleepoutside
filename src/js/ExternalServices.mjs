@@ -57,3 +57,22 @@ export function searchTents() {
     }
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("register-modal");
+  const closeModalButton = document.getElementById("close-modal");
+
+  // Check if the user has seen the modal
+  const hasSeenModal = localStorage.getItem("seenRegisterModal");
+
+  // Show the modal if the user hasn't seen it before
+  if (!hasSeenModal) {
+    modal.classList.remove("hidden");
+  }
+
+  // Close the modal and set it as seen
+  closeModalButton.addEventListener("click", () => {
+    modal.classList.add("hidden");
+    localStorage.setItem("seenRegisterModal", "true");
+  });
+});
