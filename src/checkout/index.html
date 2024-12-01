@@ -1,21 +1,14 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Sleep Outside | Checkout</title>
-
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/checkout.js" type="module"></script>
   </head>
-
   <body>
-    <header class="divider" id="header">
-    </header>
-
+    <header class="divider" id="main-header"></header>
     <main class="divider checkout">
       <h2>Review & Place your Order</h2>
       <section class="checkout-form">
@@ -52,7 +45,9 @@
             <legend>Order Summary</legend>
             <ul>
               <li>
-                <label for="cartTotal">Item Subtotal(<span id="quantity"></span>)</label>
+                <label for="cartTotal"
+                  >Item Subtotal(<span id="num-items"></span>)</label
+                >
                 <p name="cartTotal" id="cartTotal"></p>
               </li>
               <li>
@@ -74,8 +69,6 @@
         </form>
       </section>
     </main>
-
-    <footer id="footer"><!--&copy;NOT a real business--></footer>
-
+    <footer id="main-footer"></footer>
   </body>
 </html>
