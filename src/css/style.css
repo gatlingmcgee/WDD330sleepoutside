@@ -94,6 +94,26 @@ button {
 .divider {
   border-bottom: 2px solid var(--primary-color);
 }
+
+/* adjusting style for the remove item button: sean 11/16 */
+.cart-card__remove {
+ color: white;
+ background-color: red;
+ padding: 0.25em 0.75em;
+ border-radius: 6px;
+ cursor: pointer;
+ text-align: center;
+ font-size: 1rem;
+}
+
+.cart-card__remove:hover {
+  background-color: darkred;
+}
+
+.cart-card__remove:active {
+  background-color: darkred;
+}
+
 /* End utility classes */
 
 /* Cart icon styles */
@@ -192,15 +212,39 @@ button {
   grid-column: 2;
 }
 
+.cart-card__quantity input {
+  border: 1px  solid rgba(0, 0, 0, 0.3);
+  width: 60px;
+  font-size: 15px;
+}
+
 .cart-card__quantity {
-  grid-row: 1;
-  grid-column: 3;
+  text-align: center;
 }
 
 .cart-card__price {
   grid-row: 2;
   grid-column: 3;
 }
+
+/* discount CSS */
+.discount-percentage {
+  font-size: 1.1em;
+  color: red; 
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.discounted-price {
+  font-weight: bold;
+  color: green;
+}
+
 
 @media screen and (min-width: 500px) {
   body {
@@ -220,3 +264,108 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+  /* test */
+.category {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.category a {
+  height: auto;
+  width: 40%;
+  margin: 0 auto;
+}
+
+/* Newsletter */
+.newsletter-signup {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+}
+ 
+.newsletter-signup h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+ 
+.newsletter-signup p {
+  margin-bottom: 15px;
+}
+ 
+.newsletter-signup input[type="email"] {
+  padding: 10px;
+  width: 80%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+ 
+.newsletter-signup button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+ 
+.newsletter-signup button:hover {
+  background-color: #0056b3;
+}
+ 
+.message {
+  margin-top: 10px;
+  font-size: 14px;
+  color: green;
+}
+
+.cart {
+  position: relative;
+  padding-top: 1em;
+  text-align: center;
+}
+
+.cart svg {
+  width: 25px;
+  position: relative; /* Ensure it can contain the superscript number */
+}
+
+.cart-count {
+  position: absolute;
+  top: -5px; /* Adjust the vertical positioning of the number */
+  right: -5px; /* Adjust the horizontal positioning */
+  background-color: red; /* Red background to make it stand out */
+  color: white; /* White text for readability */
+  font-size: 0.8em; /* Smaller font size */
+  padding: 0.3em 0.5em; /* Padding around the number */
+  border-radius: 50%; /* Make it circular */
+  display: inline-block;
+  text-align: center;
+}
+
+/* Cart Icon Add Animation */
+@keyframes cartAdded {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.cart-icon {
+  transition: transform 0.3s ease;
+}
+
+.cart-icon.animate {
+  animation: cartAdded 0.5s ease-in-out;
+}
+
