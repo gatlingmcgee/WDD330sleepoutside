@@ -1,4 +1,4 @@
-import { getLocalStorage } from "./utils.mjs";
+import {setLocalStorage, getLocalStorage, alertMessage, removeAllAlerts} from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 const services = new ExternalServices();
@@ -53,6 +53,7 @@ export default class CheckoutProcess {
     this.itemTotal = amounts.reduce((sum, item) => sum + item);
     summaryElement.innerText = "$" + this.itemTotal;
   }
+  
   calculateOrdertotal() {
     this.shipping = 10 + (this.list.length - 1) * 2;
     this.tax = (this.itemTotal * 0.06).toFixed(2);
@@ -63,6 +64,7 @@ export default class CheckoutProcess {
     ).toFixed(2);
     this.displayOrderTotals();
   }
+  
   displayOrderTotals() {
     const shipping = document.querySelector(this.outputSelector + " #shipping");
     const tax = document.querySelector(this.outputSelector + " #tax");
@@ -73,6 +75,7 @@ export default class CheckoutProcess {
     tax.innerText = "$" + this.tax;
     orderTotal.innerText = "$" + this.orderTotal;
   }
+  
   async checkout() {
     const formElement = document.forms["checkout"];
 
@@ -83,12 +86,33 @@ export default class CheckoutProcess {
     json.tax = this.tax;
     json.shipping = this.shipping;
     json.items = packageItems(this.list);
-    console.log(json);
+    console.log("Attempting to checkout with order data:", json);;
     try {
       const res = await services.checkout(json);
-      console.log(res);
+      console.log("Checkout successful:", res);
+      
+      setLocalStorage("so-cart", []);
+      location.assign("/checkout/success.html");
     } catch (err) {
+      // get rid of any preexisting alerts.
+      removeAllAlerts();
+      for (let message in err.message) {
+        alertMessage(err.message[message]);
+      }
+
       console.log(err);
+
+      try {
+        // Attempt the checkout process using the external service
+        const res = await services.checkout(json);
+        console.log("Checkout successful:", res);
+      } catch (err) {
+        // Log and handle errors in the checkout process
+        console.error("Error during checkout:", err);
+        alert(
+          "There was an error processing your checkout. Please try again later."
+        );
+      }
     }
   }
 }
