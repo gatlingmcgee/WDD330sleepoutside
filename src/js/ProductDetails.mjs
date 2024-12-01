@@ -48,6 +48,14 @@ export default class ProductDetails {
 //  }
 
   addToCart() {
+
+    const cartIcon = document.querySelector(".cart-icon");
+    setLocalStorage("so-cart", this.product);
+    cartIcon.classList.add("animate");
+    setTimeout(() => {
+    cartIcon.classList.remove("animate");
+    },500);
+
     let cartContents = setLocalStorage("so-cart");
     //check to see if there was anything there
     if (!cartContents) {
