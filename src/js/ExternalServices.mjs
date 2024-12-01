@@ -1,13 +1,13 @@
 const baseURL = import.meta.env.VITE_SERVER_URL
 
-function convertToJson(res) {
+async function convertToJson(res) {
+  const data = await res.json();
   if (res.ok) {
-    return res.json();
+    return data;
   } else {
-    throw new Error("Bad Response");
+    throw { name: "servicesError", message: data };
   }
 }
-
 
 export default class ExternalServices {
   /*
@@ -57,3 +57,22 @@ export function searchTents() {
     }
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("register-modal");
+  const closeModalButton = document.getElementById("close-modal");
+
+  // Check if the user has seen the modal
+  const hasSeenModal = localStorage.getItem("seenRegisterModal");
+
+  // Show the modal if the user hasn't seen it before
+  if (!hasSeenModal) {
+    modal.classList.remove("hidden");
+  }
+
+  // Close the modal and set it as seen
+  closeModalButton.addEventListener("click", () => {
+    modal.classList.add("hidden");
+    localStorage.setItem("seenRegisterModal", "true");
+  });
+});

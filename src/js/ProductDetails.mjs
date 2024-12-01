@@ -1,4 +1,4 @@
-import { setLocalStorage, loadHeaderFooter } from "./utils.mjs";
+import { setLocalStorage, loadHeaderFooter, alertMessage } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
   const suggestedRetailPrice = product.SuggestedRetailPrice || 0;
@@ -55,11 +55,37 @@ export default class ProductDetails {
       .addEventListener("click", this.addToCart.bind(this));
   }
 
+//  addToCart() {
+//    const cartIcon = document.querySelector(".cart-icon");
+//    setLocalStorage("so-cart", this.product);
+//    cartIcon.classList.add("animate");
+//    setTimeout(() => {
+//      cartIcon.classList.remove("animate");
+//    },500);
+
+//    cartContents.push(this.product);
+//    setLocalStorage("so-cart", cartContents);
+//    alertMessage(`${this.product.NameWithoutBrand} added to cart!`);
+//  }
+
   addToCart() {
+
     const cartIcon = document.querySelector(".cart-icon");
     setLocalStorage("so-cart", this.product);
     cartIcon.classList.add("animate");
     setTimeout(() => {
+    cartIcon.classList.remove("animate");
+    },500);
+
+    let cartContents = setLocalStorage("so-cart");
+    //check to see if there was anything there
+    if (!cartContents) {
+      cartContents = [];
+    }
+    // then add the current product to the list
+    cartContents.push(this.product);
+    setLocalStorage("so-cart", cartContents);
+    alertMessage(`${this.product.NameWithoutBrand} added to cart!`);
       cartIcon.classList.remove("animate");
     }, 500);
   }
@@ -68,6 +94,6 @@ export default class ProductDetails {
     const element = document.querySelector(selector);
     element.insertAdjacentHTML("afterBegin", productDetailsTemplate(this.product));
   }
-}
+
 
 loadHeaderFooter();
