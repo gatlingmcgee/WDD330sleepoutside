@@ -1,0 +1,17 @@
+[
+    { 
+       "message": "This is only a test", 
+       "background": "darkblue", 
+       "color": "white" 
+    },
+    { 
+       "message": "Alert for maintenance", 
+       "background": "red", 
+       "color": "white" 
+    },
+    { 
+       "message": "Welcome back!", 
+       "background": "green", 
+       "color": "white" 
+    }
+ ]
