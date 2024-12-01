@@ -9,6 +9,7 @@ function productDetailsTemplate(product) {
 
   let priceHTML = `<p class="product-card__price">$${listPrice.toFixed(2)}</p>`;
   let discountHTML = "";
+  let discountFlag = "";  // Variable for the discount flag
 
   if (discount > 0) {
     priceHTML = `
@@ -16,29 +17,46 @@ function productDetailsTemplate(product) {
         <span class="original-price">$${suggestedRetailPrice.toFixed(2)}</span>
         <span class="discounted-price">$${listPrice.toFixed(2)}</span>
       </p>`;
-    discountHTML = `<p class="discount-percentage">-${discount}% OFF</p>`;
+    
+    discountFlag = `<span class="discount-flag">-${discount}%</span>`;  // Discount flag
   }
 
   return `<section class="product-detail">
     <h3>${product.Brand.Name}</h3>
     <h2 class="divider">${product.NameWithoutBrand}</h2>
-    <img
-      class="divider"
-      src="${product.Images.PrimaryLarge}"
-      alt="${product.NameWithoutBrand}"
-      loading="lazy"
-    />
+    <div class="product-image-container">
+      <img
+        srcset="${product.Images.PrimarySmall} 480w, 
+                ${product.Images.PrimaryMedium} 768w, 
+                ${product.Images.PrimaryLarge} 1024w"
+        sizes="(max-width: 480px) 480px, 
+              (max-width: 768px) 768px, 
+              1024px"
+        src="${product.Images.PrimaryLarge}" 
+        alt="${product.NameWithoutBrand}" 
+        loading="lazy"
+      />
+      ${discountFlag} <!-- The discount flag here -->
+    </div>
     ${priceHTML}
     ${discountHTML}
     <p class="product__color">${product.Colors[0].ColorName}</p>
-    <p class="product__description">
-      ${product.DescriptionHtmlSimple}
-    </p>
+    <p class="product__description">${product.DescriptionHtmlSimple}</p>
+
+    <!-- Add Comment Form -->
+    <div class="product-detail__comments">
+      <h3>Comments</h3>
+      <ul id="comments-list"></ul>
+      <textarea id="comment-text" placeholder="Add a comment..."></textarea>
+      <button id="submit-comment" data-id="${product.Id}">Submit Comment</button>
+    </div>
+
     <div class="product-detail__add">
       <button id="addToCart" data-id="${product.Id}">Add to Cart</button>
     </div>
   </section>`;
 }
+
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
@@ -86,14 +104,15 @@ export default class ProductDetails {
     cartContents.push(this.product);
     setLocalStorage("so-cart", cartContents);
     alertMessage(`${this.product.NameWithoutBrand} added to cart!`);
-      cartIcon.classList.remove("animate");
-    }, 500);
   }
-
+  
   renderProductDetails(selector) {
     const element = document.querySelector(selector);
-    element.insertAdjacentHTML("afterBegin", productDetailsTemplate(this.product));
+    element.insertAdjacentHTML(
+      "afterBegin",
+      productDetailsTemplate(this.product)
+    );
   }
-
+}
 
 loadHeaderFooter();
