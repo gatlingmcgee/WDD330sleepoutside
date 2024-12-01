@@ -1,7 +1,7 @@
 import { getLocalStorage } from "./utils.mjs";
 
 function ShoppingCartTemplate(product) {
-  return `<li class="product-card">
+  const newProduct = `<li class="product-card">
   <a href="#">
   <img
     src="${product.Image}"
@@ -14,6 +14,8 @@ function ShoppingCartTemplate(product) {
   }
   </a>
 </li>`;
+
+  return newProduct;
 }
 
 

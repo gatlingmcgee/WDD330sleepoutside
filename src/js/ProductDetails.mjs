@@ -1,4 +1,4 @@
-import { setLocalStorage, loadHeaderFooter, alertMessage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, loadHeaderFooter, alertMessage } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
   const suggestedRetailPrice = product.SuggestedRetailPrice || 0;
@@ -95,7 +95,7 @@ export default class ProductDetails {
     cartIcon.classList.remove("animate");
     },500);
 
-    let cartContents = setLocalStorage("so-cart");
+    let cartContents = getLocalStorage("so-cart");
     //check to see if there was anything there
     if (!cartContents) {
       cartContents = [];
