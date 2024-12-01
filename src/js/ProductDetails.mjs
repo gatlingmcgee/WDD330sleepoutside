@@ -1,4 +1,4 @@
-import { setLocalStorage, loadHeaderFooter, alertMessage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, loadHeaderFooter, alertMessage } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
@@ -48,7 +48,7 @@ export default class ProductDetails {
 //  }
 
   addToCart() {
-    let cartContents = setLocalStorage("so-cart");
+    let cartContents = getLocalStorage("so-cart");
     //check to see if there was anything there
     if (!cartContents) {
       cartContents = [];
